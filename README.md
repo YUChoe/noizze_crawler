@@ -1,4 +1,6 @@
 [![Latest Version](https://img.shields.io/pypi/v/noizze-crawler.svg)](https://pypi.org/project/noizze-crawler/)
+[![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
+
 
 # NOIZZE Crawler
 
