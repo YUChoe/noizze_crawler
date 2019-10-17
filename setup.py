@@ -5,7 +5,7 @@ with open('README.md', 'r') as fp:
 
 setup(
     name='noizze-crawler',
-    version='7',
+    version='8',
     author='Tom YU Choe',
     author_email='yonguk.choe@gmail.com',
     description='A web page crawler which returns (title, og:image, og:description).',
@@ -24,4 +24,5 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: POSIX :: Linux",
     ],
+    install_requires=["beautifulsoup4>=4.5.0"],
 )
