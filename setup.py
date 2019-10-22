@@ -5,7 +5,7 @@ with open('README.md', 'r') as fp:
 
 setup(
     name='noizze-crawler',
-    version='9',
+    version='10',
     author='Tom YU Choe',
     author_email='yonguk.choe@gmail.com',
     description='A web page crawler which returns (title, og:image, og:description).',

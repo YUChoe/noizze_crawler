@@ -2,9 +2,9 @@ from bs4 import BeautifulSoup
 import urllib.request
 import urllib.error
 import urllib.parse
-import json 
+import json
 
-version = 'v9'
+version = 'v10'
 
 google_api_key = ''
 
@@ -45,7 +45,7 @@ def youtube_crawler(url, with_tags=False):
     url = 'https://www.googleapis.com/youtube/v3/videos?id={}&key={}&part=snippet,statistics'.format(yid, google_api_key)
     response = urllib.request.urlopen(url)
     data = response.read()
-    j = json.loads(data)
+    j = json.loads(data.decode())
     if j and with_tags:
         return {
             'title': j['items'][0]['snippet']['title'],
