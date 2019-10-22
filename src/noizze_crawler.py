@@ -4,7 +4,7 @@ import urllib.error
 import urllib.parse
 import json 
 
-version = 'v9-dev'
+version = 'v9'
 
 google_api_key = ''
 
