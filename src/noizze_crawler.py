@@ -2,6 +2,11 @@ from bs4 import BeautifulSoup
 import urllib.request
 import urllib.error
 import urllib.parse
+import json 
+
+version = 'v9-dev'
+
+google_api_key = ''
 
 
 class HostNotFound(Exception):
@@ -12,6 +17,48 @@ class HostNotFound(Exception):
 class HTTPError(Exception):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+
+
+def video_id(value):
+    query = urllib.parse.urlparse(value)
+    if query.hostname == 'youtu.be':
+        return query.path[1:]
+    if query.hostname in ('www.youtube.com', 'youtube.com', 'm.youtube.com'):
+        if query.path == '/watch':
+            p = urllib.parse.parse_qs(query.query)
+            return p['v'][0]
+        if query.path[:7] == '/embed/':
+            return query.path.split('/')[2]
+        if query.path[:3] == '/v/':
+            return query.path.split('/')[2]
+    return None
+
+def is_youtube_url(url):
+    for ykwd in ['youtu.be', 'www.youtube.com', 'youtube.com', 'm.youtube.com']:
+        if ykwd in url:
+            return True
+    else:
+        return False
+
+def youtube_crawler(url, with_tags=False):
+    yid = video_id(url)
+    url = 'https://www.googleapis.com/youtube/v3/videos?id={}&key={}&part=snippet,statistics'.format(yid, google_api_key)
+    response = urllib.request.urlopen(url)
+    data = response.read()
+    j = json.loads(data)
+    if j and with_tags:
+        return {
+            'title': j['items'][0]['snippet']['title'],
+            'desc': j['items'][0]['snippet']['description'],
+            'img': 'https://i.ytimg.com/vi/{}/0.jpg'.format(yid),
+            'tags': j['items'][0]['snippet']['tags'],
+            }
+    else:
+        return {
+            'title': j['items'][0]['snippet']['title'],
+            'desc': j['items'][0]['snippet']['description'],
+            'img': 'https://i.ytimg.com/vi/{}/0.jpg'.format(yid),
+            }
 
 
 def fetch_url(url):
