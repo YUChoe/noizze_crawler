@@ -38,3 +38,10 @@ if __name__ == '__main__':
 
     print(title, desc, image_url)  # html
 ```
+
+## ChangeLog
+* v10: Fixed bugs
+* v9: Youtube crawler with Google API
+* v8: Changed PyPI dependency - bs4
+* v7: PEP8 passed codes
+* v6: HostNotFound, HTTPError exceptions
