@@ -63,7 +63,7 @@ def youtube_crawler(url, with_tags=False):
 
 def urlencode_path(url):
     u = urllib.parse.urlparse(url)
-    path = urllib.parse.quote(u.path)  # , encoding='UTF-8', doseq=True) 
+    path = urllib.parse.quote(u.path)
     u = u._replace(path=path)
     return u.geturl()
 
@@ -74,7 +74,7 @@ def fetch_url(url):
         'Chrome/77.0.3865.90 Safari/537.36'
 
     url = urlencode_path(url)
-    
+
     headers_v4 = {'User-Agent': user_agent}
     url_req = urllib.request.Request(url, headers=headers_v4)
 

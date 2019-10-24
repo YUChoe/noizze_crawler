@@ -40,8 +40,9 @@ if __name__ == '__main__':
 ```
 
 ## ChangeLog
+* v11: Fixed bugs #3 #8 
 * v10: Fixed bugs
-* v9: Youtube crawler with Google API
+* v9: Youtube crawler with Google API #4
 * v8: Changed PyPI dependency - bs4
 * v7: PEP8 passed codes
 * v6: HostNotFound, HTTPError exceptions
