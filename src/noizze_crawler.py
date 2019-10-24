@@ -98,7 +98,7 @@ def parser(url, html):
         if title_soup and title_soup.get('content', None).strip():
             title = title_soup.get('content', None)
         else:
-            if soup.title.string:
+            if soup.title and soup.title.string:
                 title = soup.title.string
                 # title_match = re.search('<title.*>(.*?)</title>', soup.title)
                 # title = title_match.group(1)
