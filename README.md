@@ -40,6 +40,7 @@ if __name__ == '__main__':
 ```
 
 ## ChangeLog
+* v12: Fixed #13 
 * v11: Fixed bugs #3 #8 
 * v10: Fixed bugs
 * v9: Youtube crawler with Google API #4
