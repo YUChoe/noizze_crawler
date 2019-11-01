@@ -1,10 +1,10 @@
-from bs4 import BeautifulSoup
-import urllib.request
+import json
 import urllib.error
 import urllib.parse
-import json
+import urllib.request
+from bs4 import BeautifulSoup
 
-version = 'v10'
+version = 'v12'
 
 google_api_key = ''
 
@@ -33,12 +33,14 @@ def video_id(value):
             return query.path.split('/')[2]
     return None
 
+
 def is_youtube_url(url):
     for ykwd in ['youtu.be', 'www.youtube.com', 'youtube.com', 'm.youtube.com']:
         if ykwd in url:
             return True
     else:
         return False
+
 
 def youtube_crawler(url, with_tags=False):
     yid = video_id(url)
@@ -51,7 +53,7 @@ def youtube_crawler(url, with_tags=False):
             'title': j['items'][0]['snippet']['title'],
             'desc': j['items'][0]['snippet']['description'],
             'img': 'https://i.ytimg.com/vi/{}/0.jpg'.format(yid),
-            'tags': j['items'][0]['snippet']['tags'],
+            'tags': j['items'][0]['snippet']['tags'] if 'tags' in j['items'][0]['snippet'] else [],
             }
     else:
         return {
