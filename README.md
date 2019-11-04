@@ -40,10 +40,10 @@ if __name__ == '__main__':
 ```
 
 ## ChangeLog
-* v12: Fixed #13 
-* v11: Fixed bugs #3 #8 
-* v10: Fixed bugs
-* v9: Youtube crawler with Google API #4
-* v8: Changed PyPI dependency - bs4
-* v7: PEP8 passed codes
-* v6: HostNotFound, HTTPError exceptions
+* v12: `Fixed` #13 
+* v11: `Fixed` bugs #3 #8 
+* v10: `Fixed` bugs
+* v9: `Added` Youtube crawler via Google API #4
+* v8: `Changed` PyPI dependency - bs4
+* v7: `Changed` PEP8 
+* v6: `Added` Exceptions HostNotFound, HTTPError 
